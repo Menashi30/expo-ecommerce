@@ -1,0 +1,21 @@
+{
+  "name": "expo-ecommerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix admin && npm install --prefix backend && npm run build --prefix admin",
+    "start": "npm run start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Menashi30/expo-ecommerce.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Menashi30/expo-ecommerce/issues"
+  },
+  "homepage": "https://github.com/Menashi30/expo-ecommerce#readme"
+}
