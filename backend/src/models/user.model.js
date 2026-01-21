@@ -1,6 +1,6 @@
-import mongoosse from "mongoose";
+import mongoose from "mongoose";
 
-const addressSchema = new mongoosse.Schema({
+const addressSchema = new mongoose.Schema({
   label: {
     type: String,
     required: true,
@@ -9,7 +9,7 @@ const addressSchema = new mongoosse.Schema({
     type: String,
     required: true,
   },
-  street: {
+  streetAddress: {
     type: String,
     required: true,
   },
@@ -21,7 +21,7 @@ const addressSchema = new mongoosse.Schema({
     type: String,
     required: true,
   },
-  zipcode: {
+  zipCode: {
     type: String,
     required: true,
   },
@@ -35,7 +35,7 @@ const addressSchema = new mongoosse.Schema({
   },
 });
 
-const userSchema = new mongoosse.Schema(
+const userSchema = new mongoose.Schema(
   {
     email: {
       type: String,
@@ -46,25 +46,28 @@ const userSchema = new mongoosse.Schema(
       type: String,
       required: true,
     },
-    imageURL: {
+    imageUrl: {
       type: String,
       default: "",
     },
     clerkId: {
       type: String,
-      required: true,
       unique: true,
+      required: true,
     },
-    address: [addressSchema],
-    //wishlist will be array of product IDs(list of products they liked) such as 1,2,3. If nothing selected it will be empty
-    //wishlist: [
-    //  {
-    //    type: mongoosse.Schema.Types.ObjectId,
-    //   ref: "product",
-    //},
-    //],
+    stripeCustomerId: {
+      type: String,
+      default: "",
+    },
+    addresses: [addressSchema],
+    wishlist: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Product",
+      },
+    ],
   },
-  { timestamps: true } //so that we willl get the created_at and updated_at columns automatically
+  { timestamps: true }
 );
 
-export const User = mongoosse.model("User", userSchema);
+export const User = mongoose.model("User", userSchema);
