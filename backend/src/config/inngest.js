@@ -19,7 +19,6 @@ const syncUser = inngest.createFunction(
       imageURL: image_url,
       clerkId: id,
       address: [],
-      wishlist: [],
     };
 
     await User.create(new_user);
