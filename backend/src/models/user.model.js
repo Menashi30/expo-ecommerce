@@ -57,12 +57,12 @@ const userSchema = new mongoosse.Schema(
     },
     address: [addressSchema],
     //wishlist will be array of product IDs(list of products they liked) such as 1,2,3. If nothing selected it will be empty
-    wishlist: [
-      {
-        type: mongoosse.Schema.Types.ObjectId,
-        ref: "product",
-      },
-    ],
+    //wishlist: [
+    //  {
+    //    type: mongoosse.Schema.Types.ObjectId,
+    //   ref: "product",
+    //},
+    //],
   },
   { timestamps: true } //so that we willl get the created_at and updated_at columns automatically
 );
