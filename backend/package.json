@@ -13,13 +13,11 @@
   "type": "module",
   "dependencies": {
     "@clerk/express": "^1.7.62",
-    "backend": "^0.0.0",
     "cloudinary": "^2.8.0",
     "dotenv": "^17.2.3",
     "expo-ecommerce": "file:..",
     "express": "^5.1.0",
     "inngest": "^3.49.3",
-    "mongoose": "^8.19.3",
-    "multer": "^2.1.0"
+    "mongoose": "^8.19.3"
   }
 }
