@@ -1,11 +1,20 @@
 import multer from "multer";
 import path from "path";
 
+// const storage = multer.diskStorage({
+//   //whenever you get a file, an unique filename would be generated. arguments are request
+//   //file and callback (cb). call the cb with the argument error = NULL and the next is the file name that would be given
+//   filename: (req, file, cb) => {
+//     cb(null, `${Date.now()}-${file.originalname}`);
+//   },
+// });
+
 const storage = multer.diskStorage({
-  //whenever you get a file, an unique filename would be generated. arguments are request
-  //file and callback (cb). call the cb with the argument error = NULL and the next is the file name that would be given
   filename: (req, file, cb) => {
-    cb(null, `${Date.now()}-${file.originalname}`);
+    const ext = path.extname(file.originalname || "").toLowerCase();
+    const safeExt = [".jpeg", ".jpg", ".png", ".webp"].includes(ext) ? ext : "";
+    const unique = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
+    cb(null, `${unique}${safeExt}`);
   },
 });
 
